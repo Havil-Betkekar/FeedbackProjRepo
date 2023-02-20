@@ -18,7 +18,7 @@ export const FeedbackProvider = ({children}) =>{
   
     // Fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch(`/feedback?_sort=id&_order=desc`)
+    const response = await fetch(` http://localhost:3000/feedback?_sort=id&_order=desc`)
     const data = await response.json()
 
     setFeedback(data)
@@ -29,13 +29,13 @@ export const FeedbackProvider = ({children}) =>{
     const deleteFeedback = async (id) => {
         // console.log('App',id);
         if (window.confirm("Are you sure you want to delete?")) {
-          await fetch(`/feedback/${id}`, {method:'DELETE'})
+          await fetch(` http://localhost:3000/feedback/${id}`, {method:'DELETE'})
           setFeedback(feedback.filter((item) => item.id !== id)); //will return minus the id passed
         }
       };
       //Add feedback
       const addFeedback = async(newFeedback) => {
-        const response = await fetch('/feedback', {
+        const response = await fetch(' http://localhost:3000/feedback', {
           method:'POST',
           headers:{
             'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export const FeedbackProvider = ({children}) =>{
       };  
       //Update feedback item
       const updateFeedback = async(id,updItem) =>{
-        const response = await fetch(`/feedback/${id}`,{
+        const response = await fetch(` http://localhost:3000/feedback/${id}`,{
           method:'PUT',
           headers:{
             'Content-Type':'application/json',
