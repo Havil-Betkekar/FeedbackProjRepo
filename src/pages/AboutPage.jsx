@@ -3,7 +3,7 @@ import Card from '../shared/Card'
 import { Link } from 'react-router-dom'
 function AboutPage() {
   return (
-    <card>
+    <Card>
         <div className='about'>
             <h1>About This Project</h1>
             <p>This is React app to leave feeedback for a product or service</p>
@@ -12,7 +12,7 @@ function AboutPage() {
                 <Link to='/'>Back to Home</Link>
             </p>
         </div>
-    </card>
+    </Card>
   )
 }
 
